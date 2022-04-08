@@ -1,13 +1,6 @@
-﻿using DevExpress.XtraEditors;
-using System;
-using System.Collections.Generic;
+﻿using System;
 using System.Data;
-using System.Data.OleDb;
 using System.Data.SqlClient;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 
 namespace RealEstate_Profile.DataAccess
 {
@@ -21,7 +14,7 @@ namespace RealEstate_Profile.DataAccess
         public SqlConnection Connection { get; set; }
         public string ConnectionString { get; set; }
 
-    
+
 
         public DataAccess(string connectionString, ref string error)
         {
@@ -36,8 +29,8 @@ namespace RealEstate_Profile.DataAccess
                 error = exception.Message;
             }
         }
-    
-       
+
+
 
 
         public int ExecuteNonQuery(string sqlQuery, SqlParameter[] sqlParameters, ref DataAccessException exception)
@@ -181,7 +174,7 @@ namespace RealEstate_Profile.DataAccess
                 exception.ErrorNumber = ex.HResult;
             }
 
-          
+
             return sqlCommand.ExecuteReader();
         }
 
@@ -205,7 +198,7 @@ namespace RealEstate_Profile.DataAccess
                 exception.ErrorNumber = ex.HResult;
             }
 
-            
+
 
             return sqlCommand.ExecuteReader();
         }

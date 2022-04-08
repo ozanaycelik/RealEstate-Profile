@@ -1,21 +1,12 @@
 ﻿using DevExpress.XtraEditors;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-using RealEstate_Profile.DataAccess;
-using System.Xml;
-using System.Text.RegularExpressions;
-using System.Security.Permissions;
-using System.Xml.Serialization;
-using System.IO;
 using RealEstate_Profile.Core.Helper;
+using RealEstate_Profile.DataAccess;
 using RealEstate_Profile.Entities;
+using System;
+using System.Data;
+using System.Linq;
+using System.Text.RegularExpressions;
+using System.Windows.Forms;
 
 namespace RealEstate_Profile
 {
@@ -78,7 +69,7 @@ namespace RealEstate_Profile
 
             if (string.IsNullOrEmpty(txt_portfoy_number.Text))
             {
-                txt_portfoy_number.Text = string.Concat(DateTime.Now.Year +""+ DateTime.Now.Month +""+ 1);
+                txt_portfoy_number.Text = string.Concat(DateTime.Now.Year + "" + DateTime.Now.Month + "" + 1);
             }
 
 
@@ -224,32 +215,32 @@ namespace RealEstate_Profile
             else
             {
 
-            
-            if (string.IsNullOrEmpty(txt_email_add.Text))
-            {
+
+                if (string.IsNullOrEmpty(txt_email_add.Text))
+                {
                     //Devam edebilir.
 
                     porfolioAdd();
-            }
-            else
-            {
-                string email = txt_email_add.Text;
-                Regex regex = new Regex(@"^([\w\.\-]+)@([\w\-]+)((\.(\w){2,3})+)$");
-                Match match = regex.Match(email);
-                if (match.Success)
+                }
+                else
                 {
+                    string email = txt_email_add.Text;
+                    Regex regex = new Regex(@"^([\w\.\-]+)@([\w\-]+)((\.(\w){2,3})+)$");
+                    Match match = regex.Match(email);
+                    if (match.Success)
+                    {
                         // Devam edebilir.
 
                         porfolioAdd();
 
                         Portfolios.portfolios p1 = new Portfolios.portfolios();
                         p1.Uygula();
+                    }
+                    else
+                    {
+                        XtraMessageBox.Show("Hatalı email girişi lütfen kontrol ediniz !!", "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
                 }
-                else
-                {
-                    XtraMessageBox.Show("Hatalı email girişi lütfen kontrol ediniz !!", "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                }
-            }
 
 
             }
@@ -258,7 +249,7 @@ namespace RealEstate_Profile
 
         private void cbx_il_listesi_SelectedValueChanged(object sender, EventArgs e)
         {
-            
+
 
             cbx_town_list.Properties.Items.Clear();
 

@@ -1,18 +1,14 @@
-﻿using RealEstate_Profile.Entities;
+﻿using DevExpress.XtraBars;
+using DevExpress.XtraEditors;
+using DevExpress.XtraGrid.Views.Grid;
+using RealEstate_Profile.Core.Helper;
 using RealEstate_Profile.DataAccess;
+using RealEstate_Profile.Entities;
 using RealEstate_Profile.Portfolio;
 using System;
-using System.Windows.Forms;
-using System.Xml;
-using DevExpress.XtraGrid.Views.Grid;
-using DevExpress.XtraEditors;
-using System.Drawing;
-using DevExpress.XtraBars;
-using RealEstate_Profile.Core.Helper;
 using System.Collections;
 using System.Linq;
-using Microsoft.Office.Interop.Excel;
-using DevExpress.XtraPrinting;
+using System.Windows.Forms;
 
 namespace RealEstate_Profile.Portfolios
 {
@@ -40,8 +36,8 @@ namespace RealEstate_Profile.Portfolios
         //}
 
         private void portfolios_Load(object sender, EventArgs e)
-         {
-        
+        {
+
 
             dt_begDate.Text = string.Concat("01.01.", DateTime.UtcNow.Year.ToString());
             dt_endDate.Text = string.Concat("31.12.", DateTime.UtcNow.Year.ToString());
@@ -156,7 +152,7 @@ namespace RealEstate_Profile.Portfolios
         private void barbtn_change_ItemClick(object sender, ItemClickEventArgs e)
         {
 
-            
+
             int mouse_index = gridView1.GetFocusedDataSourceRowIndex();
 
             string portfolioNumber = gridView1.GetRowCellValue(mouse_index, "PortfolioNumber").ToString();
@@ -182,7 +178,7 @@ namespace RealEstate_Profile.Portfolios
 
             string portfolioNumber = gridView1.GetRowCellValue(mouse_index, "PortfolioNumber").ToString();
 
-            
+
 
             DialogResult dialogResult = XtraMessageBox.Show(string.Concat(portfolioNumber, " numaralı portföy silinecektir !"), "Bilgi", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
 
@@ -196,13 +192,13 @@ namespace RealEstate_Profile.Portfolios
             {
 
             }
-            
+
         }
 
-       
 
-        
-      
+
+
+
         private void barbtn_look_ItemClick(object sender, ItemClickEventArgs e)
         {
             int mouse_index = gridView1.GetFocusedDataSourceRowIndex();
@@ -230,7 +226,7 @@ namespace RealEstate_Profile.Portfolios
         private void barbtn_toplu_sil_ItemClick(object sender, ItemClickEventArgs e)
         {
             var dataSource = ((IEnumerable)gridView1.DataSource).Cast<PortfolioTable>().ToList();
-          
+
 
             var CheckingColumn = dataSource.Where(x => x.Check == true);
 
@@ -257,7 +253,7 @@ namespace RealEstate_Profile.Portfolios
 
         private void gridControl1_KeyDown(object sender, KeyEventArgs e)
         {
-            if (e.KeyCode==Keys.A || e.KeyCode==Keys.Control)
+            if (e.KeyCode == Keys.A || e.KeyCode == Keys.Control)
             {
 
 

@@ -1,9 +1,8 @@
 ﻿using RealEstate_Profile.Ana_Kayıtlar;
-using System;
-using System.Windows.Forms;
 using RealEstate_Profile.Portfolios;
-using RealEstate_Profile.DataInsert;
+using System;
 using System.Drawing;
+using System.Windows.Forms;
 
 namespace RealEstate_Profile
 {
@@ -14,7 +13,7 @@ namespace RealEstate_Profile
             InitializeComponent();
         }
 
-      
+
 
 
         private void ayarlarToolStripMenuItem_Click(object sender, EventArgs e)
@@ -51,7 +50,7 @@ namespace RealEstate_Profile
 
             a1.ShowDialog();
 
-            
+
 
         }
 
@@ -60,7 +59,7 @@ namespace RealEstate_Profile
             Application.Exit();
         }
 
- 
+
 
         private void gayrimenkulTürleriToolStripMenuItem_Click_1(object sender, EventArgs e)
         {
@@ -122,13 +121,13 @@ namespace RealEstate_Profile
 
         private void simpleButton1_Click(object sender, EventArgs e)
         {
-            double sayi1 = double.Parse(txt_firstvalue.Text.Replace(".",","));
+            double sayi1 = double.Parse(txt_firstvalue.Text.Replace(".", ","));
             double sayi2 = double.Parse(txt_secondvalue.Text.Replace(".", ","));
             double sonuc = 0;
 
 
 
-            if (cbx_secondvalue.SelectedItem=="TL")
+            if (cbx_secondvalue.SelectedItem == "TL")
             {
                 sonuc = sayi1 * sayi2;
             }
@@ -145,7 +144,7 @@ namespace RealEstate_Profile
         private void cbx_firstvalue_Properties_SelectedValueChanged(object sender, EventArgs e)
         {
 
-            if (cbx_firstvalue.SelectedItem=="TL")
+            if (cbx_firstvalue.SelectedItem == "TL")
             {
                 txt_firstvalue.Text = "1";
             }
@@ -160,7 +159,7 @@ namespace RealEstate_Profile
                 txt_firstvalue.Text = kur;
             }
 
-            
+
         }
 
         private void simpleButton2_Click(object sender, EventArgs e)
@@ -182,12 +181,12 @@ namespace RealEstate_Profile
                 saniye = 0;
                 dakika++;
 
-                if (dakika==59)
+                if (dakika == 59)
                 {
                     dakika = 0;
                     saat++;
 
-                    if (saat==59)
+                    if (saat == 59)
                     {
                         saniye = 0;
                         dakika = 0;
@@ -196,12 +195,12 @@ namespace RealEstate_Profile
                 }
             }
 
-           lbl_sayac.Text = string.Concat(" Kullanım Süresi = " ,saat,":",dakika,":", saniye);
-            
+            lbl_sayac.Text = string.Concat(" Kullanım Süresi = ", saat, ":", dakika, ":", saniye);
+
         }
 
 
-       
-       
+
+
     }
 }

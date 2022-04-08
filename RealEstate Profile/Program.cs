@@ -1,11 +1,6 @@
-﻿using DevExpress.LookAndFeel;
-using DevExpress.Skins;
-using DevExpress.UserSkins;
+﻿using RealEstate_Profile.Portfolios;
 using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Windows.Forms;
-using RealEstate_Profile.Portfolios;
 
 namespace RealEstate_Profile
 {

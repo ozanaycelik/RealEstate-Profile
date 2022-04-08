@@ -1,6 +1,6 @@
 ﻿using DevExpress.XtraEditors;
-using System;
 using RealEstate_Profile.DataAccess;
+using System;
 using System.Windows.Forms;
 
 namespace RealEstate_Profile.Ana_Kayıtlar
@@ -23,7 +23,7 @@ namespace RealEstate_Profile.Ana_Kayıtlar
             txt_yeni_durumu.Properties.MaxLength = 50;
             cbx_gyr_durumu.Properties.Items.AddRange(DataLogic.combocagir1(tablo_adi, turAdi));
 
-            
+
             cbx_gyr_durumu.SelectedIndex = 0;
         }
 

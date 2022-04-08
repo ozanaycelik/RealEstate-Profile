@@ -1,6 +1,6 @@
 ﻿using DevExpress.XtraEditors;
-using System;
 using RealEstate_Profile.DataAccess;
+using System;
 using System.Windows.Forms;
 
 namespace RealEstate_Profile
@@ -17,7 +17,7 @@ namespace RealEstate_Profile
         private void GayrimenkulTipi_Load(object sender, EventArgs e)
         {
             txt_yeni_tip.Properties.MaxLength = 50;
-            cbx_gyr_tipleri.Properties.Items.AddRange(DataLogic.combocagir1(tablo_adi,turAdi));
+            cbx_gyr_tipleri.Properties.Items.AddRange(DataLogic.combocagir1(tablo_adi, turAdi));
 
             cbx_gyr_tipleri.SelectedIndex = 0;
         }
@@ -56,7 +56,7 @@ namespace RealEstate_Profile
             txt_yeni_tip.Text = "";
         }
 
-    
+
 
         private void btn_gayr_tipi_sil_Click(object sender, EventArgs e)
         {

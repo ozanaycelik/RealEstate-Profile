@@ -1,11 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Data;
 using System.Data.OleDb;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 
 namespace RealEstate_Profile.DataAccess
 {
@@ -14,7 +9,7 @@ namespace RealEstate_Profile.DataAccess
 
         private static DataAccessException exception;  // Catch bloğu için dataAccessException sınıfını sadece bu classta kulanılacak şekilde static şekilde çağırdık.
 
-       
+
         public string ConnectionString { get; set; }
         public OleDbConnection OleDbConnection { get; set; }
 

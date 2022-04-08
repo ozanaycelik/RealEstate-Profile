@@ -1,6 +1,6 @@
 ﻿using DevExpress.XtraEditors;
-using System;
 using RealEstate_Profile.DataAccess;
+using System;
 using System.Windows.Forms;
 
 namespace RealEstate_Profile
@@ -37,7 +37,7 @@ namespace RealEstate_Profile
         private void lbl_sifre_unuttum_Click(object sender, EventArgs e)
         {
             Panel_ac_kapa(pnl_sifre_unut, pnl_ana_giris);
-            Panel_ac_kapa(pnl_sifre_unut,pnl_kayit_ol);
+            Panel_ac_kapa(pnl_sifre_unut, pnl_kayit_ol);
         }
 
         private void lbl_ana_menü_dön_Click(object sender, EventArgs e)
@@ -68,27 +68,27 @@ namespace RealEstate_Profile
         {
             bool _ekranAc = false;
 
-           _ekranAc=DataLogic.Giriş_Ekranı(txt_giris_kullanici.Text,txt_giris_sifre.Text,_ekranAc);
+            _ekranAc = DataLogic.Giriş_Ekranı(txt_giris_kullanici.Text, txt_giris_sifre.Text, _ekranAc);
 
-            if (_ekranAc==true)
+            if (_ekranAc == true)
             {
 
-               
+
 
                 p1.Text = string.Concat("Portföyüm  //  Kullanıcı Adı = ", txt_giris_kullanici.Text);
 
                 this.Hide();
                 p1.ShowDialog();
 
-                
+
             }
-            
+
         }
 
         private void btn_kayit_ol_Click(object sender, EventArgs e)
         {
 
-            if (txt_sifre_ekle.Text==txt_sifre_onay.Text)
+            if (txt_sifre_ekle.Text == txt_sifre_onay.Text)
             {
                 d1.kullanici_ekle(txt_kullanici_ekle.Text, txt_sifre_onay.Text);
 

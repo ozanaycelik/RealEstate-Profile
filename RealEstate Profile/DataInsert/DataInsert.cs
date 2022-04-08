@@ -2,11 +2,8 @@
 using RealEstate_Profile.DataAccess;
 using RealEstate_Profile.Extensions.CastExtensions;
 using System;
-using System.Collections;
 using System.Collections.Generic;
 using System.Data;
-using System.Data.OleDb;
-using System.Data.SqlClient;
 using System.Linq;
 using System.Runtime.InteropServices;
 using System.Windows.Forms;
@@ -37,13 +34,13 @@ namespace RealEstate_Profile.DataInsert
 
             if (string.IsNullOrEmpty(buttonEdit2.Text))
             {
-                XtraMessageBox.Show("Lütfen geçerli bir excel belgesi giriniz !","Bilgi",MessageBoxButtons.OK,MessageBoxIcon.Information);
+                XtraMessageBox.Show("Lütfen geçerli bir excel belgesi giriniz !", "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             else
             {
                 GetExcelFile();
             }
-            
+
         }
 
         private void buttonEdit1_Properties_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
@@ -56,34 +53,34 @@ namespace RealEstate_Profile.DataInsert
 
             file.Filter = "Excel Dosyası | *.xls; *.xlsx; *.xlsm";
 
-            if (file.CheckPathExists==bayrak)
+            if (file.CheckPathExists == bayrak)
             {
 
-            
-            if (file.ShowDialog() == DialogResult.OK)
-            {
-                DosyaYolu = file.FileName;// seçilen dosyanın tüm yolunu verir
-                DosyaAdi = file.SafeFileName;// seçilen dosyanın adını verir.
-                ExcelApp.Application excelApp = new ExcelApp.Application();
-                if (excelApp == null)
-                { //Excel Yüklümü Kontrolü Yapılmaktadır.
-                    MessageBox.Show("Excel yüklü değil.");
-                    return;
-                }
-                //Excel Dosyası Açılıyor.
-                ExcelApp.Workbook excelBook = excelApp.Workbooks.Open(DosyaYolu);
-                //Excel Dosyasının Sayfası Seçilir.
-                ExcelApp._Worksheet excelSheet = excelBook.Sheets[1];
 
-                //Excel Dosyasının ne kadar satır ve sütun kaplıyorsa tüm alanları alır.
-                ExcelApp.Range excelRange = excelSheet.UsedRange;
-                int satirSayisi = excelRange.Rows.Count; //Sayfanın satır sayısını alır.
-                int sutunSayisi = excelRange.Columns.Count;//Sayfanın sütun sayısını alır.
-                buttonEdit2.Text = DosyaYolu;
-                SaveFileDialog save = new SaveFileDialog();
-                save.FileName = DosyaAdi;
+                if (file.ShowDialog() == DialogResult.OK)
+                {
+                    DosyaYolu = file.FileName;// seçilen dosyanın tüm yolunu verir
+                    DosyaAdi = file.SafeFileName;// seçilen dosyanın adını verir.
+                    ExcelApp.Application excelApp = new ExcelApp.Application();
+                    if (excelApp == null)
+                    { //Excel Yüklümü Kontrolü Yapılmaktadır.
+                        MessageBox.Show("Excel yüklü değil.");
+                        return;
+                    }
+                    //Excel Dosyası Açılıyor.
+                    ExcelApp.Workbook excelBook = excelApp.Workbooks.Open(DosyaYolu);
+                    //Excel Dosyasının Sayfası Seçilir.
+                    ExcelApp._Worksheet excelSheet = excelBook.Sheets[1];
 
-                SheetName = excelSheet.Name.ToString();
+                    //Excel Dosyasının ne kadar satır ve sütun kaplıyorsa tüm alanları alır.
+                    ExcelApp.Range excelRange = excelSheet.UsedRange;
+                    int satirSayisi = excelRange.Rows.Count; //Sayfanın satır sayısını alır.
+                    int sutunSayisi = excelRange.Columns.Count;//Sayfanın sütun sayısını alır.
+                    buttonEdit2.Text = DosyaYolu;
+                    SaveFileDialog save = new SaveFileDialog();
+                    save.FileName = DosyaAdi;
+
+                    SheetName = excelSheet.Name.ToString();
                 }
                 //Okuduktan Sonra Excel Uygulamasını Kapatıyoruz.
                 //excelApp.Quit();
@@ -139,7 +136,7 @@ namespace RealEstate_Profile.DataInsert
             Microsoft.Office.Interop.Excel.Range oRng;
             for (int i = 1; i < rowCount; i++)
             {
-                if (i == 1 )
+                if (i == 1)
                     continue;
 
                 dr = ds.Tables["dtExcel"].NewRow();
@@ -170,7 +167,7 @@ namespace RealEstate_Profile.DataInsert
                 PortfolioDate = s.Field<string>("B").ToDateTime(),
                 CustomerName = s.Field<string>("C"),
                 CustomerSurname = s.Field<string>("D"),
-                CustomerType=s.Field<string>("E"),
+                CustomerType = s.Field<string>("E"),
                 Phone1 = s.Field<string>("F"),
                 Phone2 = s.Field<string>("G"),
                 Email = s.Field<string>("H"),
@@ -194,32 +191,32 @@ namespace RealEstate_Profile.DataInsert
             var sayac_ = 0;
             foreach (var item in data.ToList())
             {
-                
+
 
                 var flag = true;
-              flag= DataLogic.PortfoyArat(item.PortfolioNumber);
-                if (flag==true)
+                flag = DataLogic.PortfoyArat(item.PortfolioNumber);
+                if (flag == true)
                 {
                     l1.Add(sayac_);
                     string deger = item.PortfolioNumber;
                     //data.Remove(item.PortfolioNumber).ToString();
 
-                   data.RemoveAt(sayac_);
+                    data.RemoveAt(sayac_);
                     sayac_--;
                 }
 
                 sayac_++;
-               
+
             }
-           
+
             dataGridView1.DataSource = data;
 
             var sayac = 0;
             foreach (var item in data)
             {
-               
+
                 DataLogic.AddPortfolio(item);
-                
+
                 sayac++;
             }
 
@@ -271,7 +268,7 @@ namespace RealEstate_Profile.DataInsert
 
             if (string.IsNullOrEmpty(buttonEdit2.Text))
             {
-                GetExcelFile(); 
+                GetExcelFile();
             }
             else
             {
@@ -280,7 +277,7 @@ namespace RealEstate_Profile.DataInsert
         }
     }
 
-    
+
 }
 
 

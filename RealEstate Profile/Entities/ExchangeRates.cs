@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Xml;
 
 namespace RealEstate_Profile.Entities
@@ -18,7 +14,7 @@ namespace RealEstate_Profile.Entities
 
         {
 
-            USD, GBP,EUR
+            USD, GBP, EUR
 
         }
 
@@ -52,11 +48,11 @@ namespace RealEstate_Profile.Entities
 
                 Exception ex;
             }
-           
+
 
         }
 
-        public string TlKarsiligi(string  kodu, Tur turu)
+        public string TlKarsiligi(string kodu, Tur turu)
 
         {
 

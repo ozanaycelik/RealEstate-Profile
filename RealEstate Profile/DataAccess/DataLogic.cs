@@ -1,15 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data.SqlClient;
-using DevExpress.XtraEditors;
-using System.Windows.Forms;
-using System.Configuration;
-using RealEstate_Profile.Entities;
-using System.Data;
-using System.Linq;
-using System.Data.OleDb;
-using System.Xml;
+﻿using DevExpress.XtraEditors;
 using RealEstate_Profile.Core.Helper;
+using RealEstate_Profile.Entities;
+using System;
+using System.Collections.Generic;
+using System.Data;
+using System.Data.SqlClient;
+using System.Linq;
+using System.Windows.Forms;
 
 namespace RealEstate_Profile.DataAccess
 {
@@ -18,17 +15,17 @@ namespace RealEstate_Profile.DataAccess
 
         public static string _error;
 
-      
 
-       public static string ConnectionString = ConfigHelper.ConnectionStringSql();
 
-        
+        public static string ConnectionString = ConfigHelper.ConnectionStringSql();
+
+
 
         static DataAccess dataAccess = new DataAccess(ConnectionString, ref _error);
 
         private static DataAccessException exception;
 
-     
+
 
         /// <summary>
         /// Kullanıcı Giriş Ekranı 
@@ -143,8 +140,8 @@ namespace RealEstate_Profile.DataAccess
                 new SqlParameter("@p1",portfoyNumber)
             };
 
-           
-                var result = dataAccess.ExecuteDataReader(query, parms);
+
+            var result = dataAccess.ExecuteDataReader(query, parms);
 
             if (result.Read())
             {
@@ -154,11 +151,11 @@ namespace RealEstate_Profile.DataAccess
             {
                 bayrak = false;
             }
-            
+
             return bayrak;
         }
 
-            public static string portfoy_no()
+        public static string portfoy_no()
         {
             var result = string.Empty;
 
@@ -489,19 +486,19 @@ namespace RealEstate_Profile.DataAccess
         }
 
 
-        public static  bool  FlagResult (bool flag)
-            {
+        public static bool FlagResult(bool flag)
+        {
 
             return flag;
         }
 
 
 
-        public void UpdatePortfolio (string PortfolioNumber,string CustomerName,string CustomerSurname,
-            string CustomerType,string Phone1,string Phone2,string Email,string Status,string NetTotal,string GayrTuru, string GayrType,string GayrStatus,string TapuStatus,
-            string BrutArea,string NetArea,string City,string Town,string Mahalle,string PortfolioDate)
+        public void UpdatePortfolio(string PortfolioNumber, string CustomerName, string CustomerSurname,
+            string CustomerType, string Phone1, string Phone2, string Email, string Status, string NetTotal, string GayrTuru, string GayrType, string GayrStatus, string TapuStatus,
+            string BrutArea, string NetArea, string City, string Town, string Mahalle, string PortfolioDate)
         {
-           
+
             var query = @"UPDATE Portfolio_
    SET [CustomerName] = @CustomerName
       ,[CustomerSurname] = @CustomerSurname

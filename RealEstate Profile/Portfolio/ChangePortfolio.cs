@@ -1,22 +1,12 @@
 ﻿using DevExpress.XtraEditors;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
+using RealEstate_Profile.Core.Helper;
 using RealEstate_Profile.DataAccess;
 using RealEstate_Profile.Entities;
-using System.Xml;
+using System;
+using System.Data;
+using System.Linq;
 using System.Text.RegularExpressions;
-using System.Xml.Linq;
-using RealEstate_Profile.Core.Helper;
-using System.IO;
-using System.Xml.Serialization;
-using DevExpress.Utils.Extensions;
+using System.Windows.Forms;
 
 namespace RealEstate_Profile.Portfolio
 {
@@ -121,7 +111,7 @@ namespace RealEstate_Profile.Portfolio
 
 
 
-           // lookup devexpress componenti işe yarar:)
+            // lookup devexpress componenti işe yarar:)
             lookUpCities.Properties.DataSource = cities.City;
             lookUpCities.Properties.ValueMember = "Code";
             lookUpCities.Properties.DisplayMember = "Name";
@@ -129,8 +119,8 @@ namespace RealEstate_Profile.Portfolio
 
         public void ChangeScreenLoad()
         {
-            
-            
+
+
             var cities = ConfigHelper.DeserializeXml<Cities>(il_dosyasi);
 
             foreach (var city in cities.City)
